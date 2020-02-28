@@ -1,3 +1,6 @@
+// inspired by others
+// I havent completed
+
 class Solution {
     public String addBinary(String a, String b) {
         int i = a.length() - 1;
