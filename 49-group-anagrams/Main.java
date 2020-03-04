@@ -11,7 +11,5 @@ public class Main {
             System.out.println();
         }
 
-        if (s.isMatched("eat", "tea"))
-            System.out.println("true!!");
     }
 }
