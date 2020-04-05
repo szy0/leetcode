@@ -3,8 +3,8 @@ class Solution {
         if (prices == null || prices.length <= 1) return 0;
         int len = prices.length;
         
-        int profit = 0;
-        int maxCur = 0;
+        int profit = 0; // global max profit
+        int maxCur = 0; // max current profit
 
         for (int i = 0; i < len-1; i++) {
             maxCur = Math.max(0, maxCur += prices[i + 1] - prices[i]);
