@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-// note that the class name is Solution1!!
+// Note that the class name is Solution1!!
 class Solution1 {
     public String decodeString(String s) {
         if (s.length() <= 1) return s;
