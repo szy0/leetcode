@@ -1,45 +1,40 @@
-import java.util.*;
 class MinStack {
-    List<Integer> stack;
-    /** initialize your data structure here. */
-    public MinStack() {
-        stack = new ArrayList<>();
+    private Node head;
+
+    static private class Node {
+        int val;
+        int min;
+        Node next;
+        private Node(int val, int min, Node next) {
+            this.val = val;
+            this.min = min;
+            this.next = next;
+        }
     }
+
+    // /** initialize your data structure here. */
+    // public MinStack() {
+        
+    // }
     
     public void push(int x) {
-        stack.add(x); // support autoboxing, int -> Integer
+        if (head == null) {
+            head = new Node(x, x, null);
+        } else {
+            head = new Node(x, Math.min(x, head.min), head);
+        }
     }
     
     public void pop() {
-        if (stack.size() >= 1) {
-            stack.remove(stack.size() - 1); // removing index
-        } else {
-            return;
-        }
-        
+        head = head.next;
     }
     
     public int top() {
-        if (stack.size() >= 1) {
-            int res = stack.get(stack.size() - 1);
-            pop();
-            return res;
-        } else {
-           return null;
-        }
+        return head.val;
     }
     
     public int getMin() {
-        if (stack.size() >= 1) {
-            int res = stack.get(0);
-            for (int k : stack) {
-                if (k < res) res = k;
-            }
-            return res;
-        } else {
-            return null;
-        }
-      
+        return head.min;
     }
 }
 
